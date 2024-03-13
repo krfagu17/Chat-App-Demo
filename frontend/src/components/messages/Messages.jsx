@@ -2,9 +2,12 @@ import React from 'react'
 import Message from './Message'
 import useGetMessages from '../../hooks/useGetMessages'
 import MessageSkeleton from '../skeleton/MessageSkeleton'
+import useListenMessages from '../../hooks/useListenMessages'
 
 const Messages = () => {
   const {loading,messages} =useGetMessages()
+
+  useListenMessages()
 
   console.log("messages",messages)
   return (

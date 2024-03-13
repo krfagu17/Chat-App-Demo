@@ -14,7 +14,7 @@ export const login = async (req, res) => {
         }   
         //Generate token jwt    
        const token= generateTokenAndSetCookie(user._id,res);
-       console.log("login token",token)
+    //    console.log("login token",token)
         res.status(200).json({message:"User logged in successfully",token:token,_id:user._id,username:user.username,email:user.email,fullName:user.fullName,})
 
     }catch (error) {

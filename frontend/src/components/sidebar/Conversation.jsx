@@ -1,18 +1,23 @@
 import React from 'react'
 
 import useConversation from "../../zustand/useConversation.js"
+import { useSocketContext } from '../../context/SocketContext.jsx'
 
 const Conversation = ({name,conversationData}) => {
 
   const {selectedConversation,setSelectedConversation} = useConversation()
 
   const isSelected = selectedConversation?._id===conversationData._id
+
+  const {userOnline}=useSocketContext()
+  // console.log(userOnline,"which one")
+  // console.log("context value",useSocketContext())
   
   return (
     <div className={`p-2 flex items-center justify-between hover:bg-sky-400 transition-all
     ${isSelected ? "bg-sky-400":null}`}
     onClick={()=>{setSelectedConversation(conversationData)
-    console.log("selected",selectedConversation)
+    // console.log("selected",selectedConversation)
     }}
     >
         <div className='flex items-center gap-2'>
